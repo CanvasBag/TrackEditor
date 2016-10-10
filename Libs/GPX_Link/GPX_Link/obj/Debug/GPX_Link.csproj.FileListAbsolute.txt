@@ -1,0 +1,4 @@
+C:\Users\pmendonca\Documents\GitHub\TrackEditor\Libs\GPX_Link\GPX_Link\bin\Debug\GPX_Link.dll
+C:\Users\pmendonca\Documents\GitHub\TrackEditor\Libs\GPX_Link\GPX_Link\bin\Debug\GPX_Link.pdb
+C:\Users\pmendonca\Documents\GitHub\TrackEditor\Libs\GPX_Link\GPX_Link\obj\Debug\GPX_Link.dll
+C:\Users\pmendonca\Documents\GitHub\TrackEditor\Libs\GPX_Link\GPX_Link\obj\Debug\GPX_Link.pdb

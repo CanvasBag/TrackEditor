@@ -1,0 +1,10 @@
+C:\Users\pmendonca\Documents\GitHub\TrackEditor\Alttariq\Alttariq\bin\Debug\Alttariq.exe
+C:\Users\pmendonca\Documents\GitHub\TrackEditor\Alttariq\Alttariq\bin\Debug\Alttariq.pdb
+C:\Users\pmendonca\Documents\GitHub\TrackEditor\Alttariq\Alttariq\bin\Debug\GPX_Link.dll
+C:\Users\pmendonca\Documents\GitHub\TrackEditor\Alttariq\Alttariq\bin\Debug\GPX_Link.pdb
+C:\Users\pmendonca\Documents\GitHub\TrackEditor\Alttariq\Alttariq\obj\x86\Debug\Alttariq.csprojResolveAssemblyReference.cache
+C:\Users\pmendonca\Documents\GitHub\TrackEditor\Alttariq\Alttariq\obj\x86\Debug\Alttariq.Form1.resources
+C:\Users\pmendonca\Documents\GitHub\TrackEditor\Alttariq\Alttariq\obj\x86\Debug\Alttariq.Properties.Resources.resources
+C:\Users\pmendonca\Documents\GitHub\TrackEditor\Alttariq\Alttariq\obj\x86\Debug\Alttariq.csproj.GenerateResource.Cache
+C:\Users\pmendonca\Documents\GitHub\TrackEditor\Alttariq\Alttariq\obj\x86\Debug\Alttariq.exe
+C:\Users\pmendonca\Documents\GitHub\TrackEditor\Alttariq\Alttariq\obj\x86\Debug\Alttariq.pdb
