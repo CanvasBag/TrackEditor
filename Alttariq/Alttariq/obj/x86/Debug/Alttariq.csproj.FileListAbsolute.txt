@@ -8,3 +8,5 @@ C:\Users\pmendonca\Documents\GitHub\TrackEditor\Alttariq\Alttariq\obj\x86\Debug\
 C:\Users\pmendonca\Documents\GitHub\TrackEditor\Alttariq\Alttariq\obj\x86\Debug\Alttariq.csproj.GenerateResource.Cache
 C:\Users\pmendonca\Documents\GitHub\TrackEditor\Alttariq\Alttariq\obj\x86\Debug\Alttariq.exe
 C:\Users\pmendonca\Documents\GitHub\TrackEditor\Alttariq\Alttariq\obj\x86\Debug\Alttariq.pdb
+D:\GitHub\TrackEditor\Alttariq\Alttariq\obj\x86\Debug\Alttariq.exe
+D:\GitHub\TrackEditor\Alttariq\Alttariq\obj\x86\Debug\Alttariq.pdb
