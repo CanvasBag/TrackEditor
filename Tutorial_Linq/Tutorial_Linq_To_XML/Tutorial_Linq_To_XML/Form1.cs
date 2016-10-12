@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using System.Xml;
 using System.IO;
 
 namespace Tutorial_Linq_To_XML
@@ -168,7 +169,7 @@ namespace Tutorial_Linq_To_XML
         #region Section 2: Manipulate XML content and Persist the changes using LINQ To XML
 
         /// <summary>
-        /// Create an XML Document with Xml Declaration/Namespace/Comments using LINQ to XML
+        /// 9 - Create an XML Document with Xml Declaration/Namespace/Comments using LINQ to XML
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -189,6 +190,158 @@ namespace Tutorial_Linq_To_XML
             StringWriter sw = new StringWriter();
             xDoc.Save(sw);
             Console.WriteLine(sw);
+        }
+
+        /// <summary>
+        /// 10 - Save the XML Document to a XMLWriter or to the disk using LINQ to XML
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void exemplo10_Click(object sender, EventArgs e)
+        {
+            XNamespace empNM = "urn:lst-emp:emp";
+
+            XDocument xDoc = new XDocument(
+                        new XDeclaration("1.0", "UTF-16", null),
+                        new XElement(empNM + "Employees",
+                            new XElement("Employee",
+                                new XComment("Only 3 elements for demo purposes"),
+                                new XElement("EmpId", "5"),
+                                new XElement("Name", "Kimmy"),
+                                new XElement("Sex", "Female")
+                                )));
+            
+            // Save to XMLWriter
+            StringWriter sw = new StringWriter();
+            XmlWriter xWrite = XmlWriter.Create(sw);
+            xDoc.Save(xWrite);
+            xWrite.Close();
+
+            // Save to Disk
+            xDoc.Save("..\\..\\..\\..\\Created.xml");
+            Console.WriteLine("Saved");
+        }
+
+
+        /// <summary>
+        /// 11 - Load an XML Document using XML Reader using LINQ to XML
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void exemplo11_Click(object sender, EventArgs e)
+        {
+            XmlReader xRead = XmlReader.Create(@"..\\..\\..\\..\\exemplo.xml");
+            XElement xEle = XElement.Load(xRead);
+            Console.WriteLine(xEle);
+            xRead.Close();
+        }
+
+        /// <summary>
+        /// 12 - Find Element at a Specific Position using LINQ to XML
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button12_Click(object sender, EventArgs e)
+        {
+            // Using XElement
+            Console.WriteLine("Using XElement");
+            XElement xEle = XElement.Load("..\\..\\..\\..\\exemplo.xml");
+            var emp1 = xEle.Descendants("Employee").ElementAt(0);
+            Console.WriteLine(emp1);
+
+            Console.WriteLine("------------");
+
+            //// Using XDocument
+            Console.WriteLine("Using XDocument");
+            XDocument xDoc = XDocument.Load("..\\..\\..\\..\\exemplo.xml");
+            var emp2 = xDoc.Descendants("Employee").ElementAt(1);
+            Console.WriteLine(emp2);
+        }
+
+
+        /// <summary>
+        /// 13 - List the First 2 Elements using LINQ to XML
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void exemplo13_Click(object sender, EventArgs e)
+        {
+            XElement xEle = XElement.Load("..\\..\\..\\..\\exemplo.xml");
+            var emps = xEle.Descendants("Employee").Take(2);
+            foreach (var emp in emps)
+                Console.WriteLine(emp);
+        }
+
+        /// <summary>
+        /// 14 - List the 2nd and 3rd Element using LINQ to XML
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void exemplo14_Click(object sender, EventArgs e)
+        {
+            XElement xEle = XElement.Load("..\\..\\..\\..\\exemplo.xml");
+            var emps = xEle.Descendants("Employee").Skip(1).Take(2);
+            foreach (var emp in emps)
+                Console.WriteLine(emp);
+        }
+
+        /// <summary>
+        /// 15 - List the Last 2 Elements using LINQ To XML
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void exemplo15_Click(object sender, EventArgs e)
+        {
+            XElement xEle = XElement.Load("..\\..\\..\\..\\exemplo.xml");
+            var emps = xEle.Descendants("Employee").Reverse().Take(2);
+            foreach (var emp in emps)
+                Console.WriteLine(emp.Element("EmpId") + "" + emp.Element("Name"));
+
+            //To display only the values without the XML tags, use the ‘Value’ property
+
+            XElement xEle1 = XElement.Load("..\\..\\..\\..\\exemplo.xml");
+            var emps1 = xEle.Descendants("Employee").Reverse().Take(2);
+            foreach (var emp in emps1)
+                Console.WriteLine(emp.Element("EmpId").Value + ". " + emp.Element("Name").Value);
+
+            //If you notice, the results are not ordered i.e. the Employee 4 is printed before 3. 
+            //To order the results, just add call Reverse() again while filtering as shown below:
+
+            XElement xEle2 = XElement.Load("..\\..\\..\\..\\exemplo.xml");
+            var emps2 = xEle.Descendants("Employee").Reverse().Take(2).Reverse();
+            foreach (var emp in emps2)
+                Console.WriteLine(emp.Element("EmpId").Value + ". " + emp.Element("Name").Value);
+        }
+
+
+        /// <summary>
+        /// 16 - Find the Element Count based on a condition using LINQ to XML
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void exemplo16_Click(object sender, EventArgs e)
+        {
+            XElement xelement = XElement.Load("..\\..\\..\\..\\exemplo.xml");
+            var stCnt = from address in xelement.Elements("Employee")
+                        where (string)address.Element("Address").Element("State") == "CA"
+                        select address;
+            Console.WriteLine("No of Employees living in CA State are {0}", stCnt.Count());
+        }
+
+
+        /// <summary>
+        /// 17 - Add a new Element at runtime using LINQ to XML
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void exemplo17_Click(object sender, EventArgs e)
+        {
+            XElement xEle = XElement.Load("..\\..\\..\\..\\exemplo.xml");
+            xEle.Add(new XElement("Employee",
+                new XElement("EmpId", 5),
+                new XElement("Name", "George")));
+
+            Console.Write(xEle);
         }
 
         #endregion
