@@ -165,7 +165,7 @@ namespace Tutorial_Linq_To_XML
 
         #endregion
 
-        
+
         #region Section 2: Manipulate XML content and Persist the changes using LINQ To XML
 
         /// <summary>
@@ -340,6 +340,38 @@ namespace Tutorial_Linq_To_XML
             xEle.Add(new XElement("Employee",
                 new XElement("EmpId", 5),
                 new XElement("Name", "George")));
+
+            Console.Write(xEle);
+        }
+        
+
+        /// <summary>
+        /// 18 - Add a new Element as the First Child using LINQ to XML
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void exemplo18_Click(object sender, EventArgs e)
+        {
+            XElement xEle = XElement.Load("..\\..\\..\\..\\exemplo.xml");
+            xEle.AddFirst(new XElement("Employee",
+                new XElement("EmpId", 5),
+                new XElement("Name", "George")));
+
+            Console.Write(xEle);
+        }
+
+
+        /// <summary>
+        /// 19 - Add an attribute to an Element using LINQ to XML
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void exemplo19_Click(object sender, EventArgs e)
+        {
+            XElement xEle = XElement.Load("..\\..\\..\\..\\exemplo.xml");
+            xEle.Add(new XElement("Employee",
+                new XElement("EmpId", 5),
+                new XElement("Phone", "423-555-4224", new XAttribute("Type", "Home"))));
 
             Console.Write(xEle);
         }

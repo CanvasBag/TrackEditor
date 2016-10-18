@@ -45,6 +45,8 @@
             this.exemplo15 = new System.Windows.Forms.Button();
             this.exemplo16 = new System.Windows.Forms.Button();
             this.exemplo17 = new System.Windows.Forms.Button();
+            this.exemplo18 = new System.Windows.Forms.Button();
+            this.exemplo19 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // exemplo1
@@ -217,11 +219,33 @@
             this.exemplo17.UseVisualStyleBackColor = true;
             this.exemplo17.Click += new System.EventHandler(this.exemplo17_Click);
             // 
+            // exemplo18
+            // 
+            this.exemplo18.Location = new System.Drawing.Point(187, 42);
+            this.exemplo18.Name = "exemplo18";
+            this.exemplo18.Size = new System.Drawing.Size(75, 23);
+            this.exemplo18.TabIndex = 17;
+            this.exemplo18.Text = "Exemplo 18";
+            this.exemplo18.UseVisualStyleBackColor = true;
+            this.exemplo18.Click += new System.EventHandler(this.exemplo18_Click);
+            // 
+            // exemplo19
+            // 
+            this.exemplo19.Location = new System.Drawing.Point(187, 71);
+            this.exemplo19.Name = "exemplo19";
+            this.exemplo19.Size = new System.Drawing.Size(75, 23);
+            this.exemplo19.TabIndex = 18;
+            this.exemplo19.Text = "Exemplo 19";
+            this.exemplo19.UseVisualStyleBackColor = true;
+            this.exemplo19.Click += new System.EventHandler(this.exemplo19_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(365, 384);
+            this.Controls.Add(this.exemplo19);
+            this.Controls.Add(this.exemplo18);
             this.Controls.Add(this.exemplo17);
             this.Controls.Add(this.exemplo16);
             this.Controls.Add(this.exemplo15);
@@ -264,6 +288,8 @@
         private System.Windows.Forms.Button exemplo15;
         private System.Windows.Forms.Button exemplo16;
         private System.Windows.Forms.Button exemplo17;
+        private System.Windows.Forms.Button exemplo18;
+        private System.Windows.Forms.Button exemplo19;
     }
 }
 
