@@ -47,6 +47,11 @@
             this.exemplo17 = new System.Windows.Forms.Button();
             this.exemplo18 = new System.Windows.Forms.Button();
             this.exemplo19 = new System.Windows.Forms.Button();
+            this.button20 = new System.Windows.Forms.Button();
+            this.exemplo24 = new System.Windows.Forms.Button();
+            this.exemplo21 = new System.Windows.Forms.Button();
+            this.exemplo22 = new System.Windows.Forms.Button();
+            this.exemplo23 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // exemplo1
@@ -239,11 +244,66 @@
             this.exemplo19.UseVisualStyleBackColor = true;
             this.exemplo19.Click += new System.EventHandler(this.exemplo19_Click);
             // 
+            // button20
+            // 
+            this.button20.Location = new System.Drawing.Point(187, 100);
+            this.button20.Name = "button20";
+            this.button20.Size = new System.Drawing.Size(75, 23);
+            this.button20.TabIndex = 19;
+            this.button20.Text = "Exemplo 20";
+            this.button20.UseVisualStyleBackColor = true;
+            this.button20.Click += new System.EventHandler(this.button20_Click);
+            // 
+            // exemplo24
+            // 
+            this.exemplo24.Location = new System.Drawing.Point(187, 216);
+            this.exemplo24.Name = "exemplo24";
+            this.exemplo24.Size = new System.Drawing.Size(75, 23);
+            this.exemplo24.TabIndex = 20;
+            this.exemplo24.Text = "Exemplo 24";
+            this.exemplo24.UseVisualStyleBackColor = true;
+            this.exemplo24.Click += new System.EventHandler(this.exemplo24_Click);
+            // 
+            // exemplo21
+            // 
+            this.exemplo21.Location = new System.Drawing.Point(187, 129);
+            this.exemplo21.Name = "exemplo21";
+            this.exemplo21.Size = new System.Drawing.Size(75, 23);
+            this.exemplo21.TabIndex = 21;
+            this.exemplo21.Text = "Exemplo 21";
+            this.exemplo21.UseVisualStyleBackColor = true;
+            this.exemplo21.Click += new System.EventHandler(this.exemplo21_Click);
+            // 
+            // exemplo22
+            // 
+            this.exemplo22.Location = new System.Drawing.Point(187, 158);
+            this.exemplo22.Name = "exemplo22";
+            this.exemplo22.Size = new System.Drawing.Size(75, 23);
+            this.exemplo22.TabIndex = 22;
+            this.exemplo22.Text = "Exemplo 22";
+            this.exemplo22.UseVisualStyleBackColor = true;
+            this.exemplo22.Click += new System.EventHandler(this.exemplo22_Click);
+            // 
+            // exemplo23
+            // 
+            this.exemplo23.Location = new System.Drawing.Point(187, 187);
+            this.exemplo23.Name = "exemplo23";
+            this.exemplo23.Size = new System.Drawing.Size(75, 23);
+            this.exemplo23.TabIndex = 23;
+            this.exemplo23.Text = "Exemplo 23";
+            this.exemplo23.UseVisualStyleBackColor = true;
+            this.exemplo23.Click += new System.EventHandler(this.exemplo23_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(365, 384);
+            this.ClientSize = new System.Drawing.Size(293, 255);
+            this.Controls.Add(this.exemplo23);
+            this.Controls.Add(this.exemplo22);
+            this.Controls.Add(this.exemplo21);
+            this.Controls.Add(this.exemplo24);
+            this.Controls.Add(this.button20);
             this.Controls.Add(this.exemplo19);
             this.Controls.Add(this.exemplo18);
             this.Controls.Add(this.exemplo17);
@@ -290,6 +350,11 @@
         private System.Windows.Forms.Button exemplo17;
         private System.Windows.Forms.Button exemplo18;
         private System.Windows.Forms.Button exemplo19;
+        private System.Windows.Forms.Button button20;
+        private System.Windows.Forms.Button exemplo24;
+        private System.Windows.Forms.Button exemplo21;
+        private System.Windows.Forms.Button exemplo22;
+        private System.Windows.Forms.Button exemplo23;
     }
 }
 

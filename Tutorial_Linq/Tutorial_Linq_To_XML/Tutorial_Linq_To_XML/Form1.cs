@@ -374,6 +374,97 @@ namespace Tutorial_Linq_To_XML
                 new XElement("Phone", "423-555-4224", new XAttribute("Type", "Home"))));
 
             Console.Write(xEle);
+        }        
+
+        /// <summary>
+        /// 20 - Replace Contents of an Element/Elements using LINQ to XML
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button20_Click(object sender, EventArgs e)
+        {
+            XElement xEle = XElement.Load("..\\..\\..\\..\\exemplo.xml.xml");
+            var countries = xEle.Elements("Employee").Elements("Address").Elements("Country").ToList();
+            foreach (XElement cEle in countries)
+                cEle.ReplaceNodes("United States Of America");
+
+            Console.Write(xEle);
+        }
+
+        /// <summary>
+        /// 21 - Remove an attribute from all the Elements using LINQ to XML
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void exemplo21_Click(object sender, EventArgs e)
+        {
+            XElement xEle = XElement.Load("..\\..\\Employees.xml");
+            var phone = xEle.Elements("Employee").Elements("Phone").ToList();
+            foreach (XElement pEle in phone)
+                pEle.RemoveAttributes();
+
+            Console.Write(xEle);
+
+            /*
+             * To remove attribute of one Element based on a condition, traverse to that Element and SetAttributeValue("Type", null); 
+             * You can also use SetAttributeValue(XName,object) to update an attribute value.
+             */
+        }
+
+        /// <summary>
+        /// 22 - Delete an Element based on a condition using LINQ to XML
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void exemplo22_Click(object sender, EventArgs e)
+        {
+            XElement xEle = XElement.Load("..\\..\\Employees.xml");
+            var addr = xEle.Elements("Employee").ToList();
+            foreach (XElement addEle in addr)
+                addEle.SetElementValue("Address", null);
+
+            Console.Write(xEle);
+        }
+
+        /// <summary>
+        /// 23 - Remove ‘n’ number of Elements using LINQ to XML
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void exemplo23_Click(object sender, EventArgs e)
+        {
+            XElement xEle = XElement.Load("..\\..\\Employees.xml");
+            var emps = xEle.Descendants("Employee");
+            emps.Reverse().Take(2).Remove();
+
+            Console.Write(xEle);
+        }
+
+        /// <summary>
+        /// 24 - Save/Persists Changes to the XML using LINQ to XML
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void exemplo24_Click(object sender, EventArgs e)
+        {
+            XElement xEle = XElement.Load("..\\..\\Employees.xml");
+            xEle.Add(new XElement("Employee",
+            new XElement("EmpId", 5),
+            new XElement("Name", "George"),
+            new XElement("Sex", "Male"),
+            new XElement("Phone", "423-555-4224", new XAttribute("Type", "Home")),
+            new XElement("Phone", "424-555-0545", new XAttribute("Type", "Work")),
+            new XElement("Address",
+                new XElement("Street", "Fred Park, East Bay"),
+                new XElement("City", "Acampo"),
+                new XElement("State", "CA"),
+                new XElement("Zip", "95220"),
+                new XElement("Country", "USA"))));
+
+            xEle.Save("..\\..\\Employees.xml");
+            Console.WriteLine(xEle);
+
+            Console.ReadLine();
         }
 
         #endregion

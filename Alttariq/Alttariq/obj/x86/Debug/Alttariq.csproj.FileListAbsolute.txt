@@ -10,3 +10,17 @@ C:\Users\pmendonca\Documents\GitHub\TrackEditor\Alttariq\Alttariq\obj\x86\Debug\
 C:\Users\pmendonca\Documents\GitHub\TrackEditor\Alttariq\Alttariq\obj\x86\Debug\Alttariq.pdb
 D:\GitHub\TrackEditor\Alttariq\Alttariq\obj\x86\Debug\Alttariq.exe
 D:\GitHub\TrackEditor\Alttariq\Alttariq\obj\x86\Debug\Alttariq.pdb
+D:\GitHub\TrackEditor\Alttariq\Alttariq\obj\x86\Debug\Alttariq.csprojResolveAssemblyReference.cache
+D:\GitHub\TrackEditor\Alttariq\Alttariq\obj\x86\Debug\Alttariq.Form1.resources
+D:\GitHub\TrackEditor\Alttariq\Alttariq\obj\x86\Debug\Alttariq.Properties.Resources.resources
+D:\GitHub\TrackEditor\Alttariq\Alttariq\obj\x86\Debug\Alttariq.csproj.GenerateResource.Cache
+D:\GitHub\TrackEditor\Alttariq\Alttariq\bin\Debug\Alttariq.exe
+D:\GitHub\TrackEditor\Alttariq\Alttariq\bin\Debug\Alttariq.pdb
+D:\GitHub\TrackEditor\Alttariq\Alttariq\bin\Debug\BaseCoordinates.dll
+D:\GitHub\TrackEditor\Alttariq\Alttariq\bin\Debug\GPX_Parser.dll
+D:\GitHub\TrackEditor\Alttariq\Alttariq\bin\Debug\BaseCoordinates.pdb
+D:\GitHub\TrackEditor\Alttariq\Alttariq\bin\Debug\BaseCoordinates.xml
+D:\GitHub\TrackEditor\Alttariq\Alttariq\bin\Debug\GPX_Parser.pdb
+D:\GitHub\TrackEditor\Alttariq\Alttariq\bin\Debug\Alttariq.exe.config
+D:\GitHub\TrackEditor\Alttariq\Alttariq\bin\Debug\SharpKml.dll
+D:\GitHub\TrackEditor\Alttariq\Alttariq\bin\Debug\SharpKml.xml

@@ -1,0 +1,8 @@
+D:\GitHub\TrackEditor\Libs\GPX_Parser\GPX_Parser\GPX_Parser\bin\Release\GPX_Parser.dll
+D:\GitHub\TrackEditor\Libs\GPX_Parser\GPX_Parser\GPX_Parser\bin\Release\GPX_Parser.pdb
+D:\GitHub\TrackEditor\Libs\GPX_Parser\GPX_Parser\GPX_Parser\bin\Release\BaseCoordinates.dll
+D:\GitHub\TrackEditor\Libs\GPX_Parser\GPX_Parser\GPX_Parser\bin\Release\BaseCoordinates.pdb
+D:\GitHub\TrackEditor\Libs\GPX_Parser\GPX_Parser\GPX_Parser\bin\Release\BaseCoordinates.xml
+D:\GitHub\TrackEditor\Libs\GPX_Parser\GPX_Parser\GPX_Parser\obj\Release\GPX_Parser.csprojResolveAssemblyReference.cache
+D:\GitHub\TrackEditor\Libs\GPX_Parser\GPX_Parser\GPX_Parser\obj\Release\GPX_Parser.dll
+D:\GitHub\TrackEditor\Libs\GPX_Parser\GPX_Parser\GPX_Parser\obj\Release\GPX_Parser.pdb
