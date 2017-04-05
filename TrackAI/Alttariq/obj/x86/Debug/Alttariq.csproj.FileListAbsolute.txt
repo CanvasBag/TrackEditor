@@ -1,0 +1,16 @@
+D:\GitHub\TrackEditor\TrackAI\Alttariq\bin\Debug\TrackAI.exe.config
+D:\GitHub\TrackEditor\TrackAI\Alttariq\bin\Debug\TrackAI.exe
+D:\GitHub\TrackEditor\TrackAI\Alttariq\bin\Debug\TrackAI.pdb
+D:\GitHub\TrackEditor\TrackAI\Alttariq\bin\Debug\BaseCoordinates.dll
+D:\GitHub\TrackEditor\TrackAI\Alttariq\bin\Debug\GPX_Parser.dll
+D:\GitHub\TrackEditor\TrackAI\Alttariq\bin\Debug\SharpKml.dll
+D:\GitHub\TrackEditor\TrackAI\Alttariq\bin\Debug\BaseCoordinates.pdb
+D:\GitHub\TrackEditor\TrackAI\Alttariq\bin\Debug\BaseCoordinates.xml
+D:\GitHub\TrackEditor\TrackAI\Alttariq\bin\Debug\GPX_Parser.pdb
+D:\GitHub\TrackEditor\TrackAI\Alttariq\bin\Debug\SharpKml.xml
+D:\GitHub\TrackEditor\TrackAI\Alttariq\obj\x86\Debug\Alttariq.Form1.resources
+D:\GitHub\TrackEditor\TrackAI\Alttariq\obj\x86\Debug\TrackAI.Properties.Resources.resources
+D:\GitHub\TrackEditor\TrackAI\Alttariq\obj\x86\Debug\Alttariq.csproj.GenerateResource.Cache
+D:\GitHub\TrackEditor\TrackAI\Alttariq\obj\x86\Debug\TrackAI.exe
+D:\GitHub\TrackEditor\TrackAI\Alttariq\obj\x86\Debug\TrackAI.pdb
+D:\GitHub\TrackEditor\TrackAI\Alttariq\obj\x86\Debug\Alttariq.csprojResolveAssemblyReference.cache

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -66,7 +67,7 @@ namespace GPX_Parser
                 // Populate track data objects.
                 foreach (var trkSeg in trk.Segs)
                 {
-                    Ll llTmp = new Ll(Convert.ToDouble(trkSeg.Longitude), Convert.ToDouble(trkSeg.Latitude), Convert.ToDouble(trkSeg.Elevation), trk.Name);
+                    Ll llTmp = new Ll(Convert.ToDouble(trkSeg.Longitude, CultureInfo.InvariantCulture), Convert.ToDouble(trkSeg.Latitude, CultureInfo.InvariantCulture), Convert.ToDouble(trkSeg.Elevation, CultureInfo.InvariantCulture), trk.Name);
                     String tempo = trkSeg.Time;
                     String data = tempo.Split('T')[0];
                     String hora = tempo.Split('T')[1];
