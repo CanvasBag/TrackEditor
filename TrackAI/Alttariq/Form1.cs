@@ -10,18 +10,20 @@ using System.Globalization;
 using GPX_Parser;
 using BaseCoordinates.Seed;
 using BaseCoordinates.Elements;
+using BaseCoordinates.Geometry;
 using SharpKml;
 using SharpKml.Base;
 using SharpKml.Dom;
 using SharpKml.Engine;
+using TerrainModel;
 
 namespace Alttariq
 {
     public partial class Form1 : Form
     {
-        private double[,] dtmGridArray;
         private double gridSpacing = 0.0;
         private double xMax, xMin, yMax, yMin;
+        ENZGrid dtmGridArray;
         public Form1()
         {
             InitializeComponent();
@@ -30,9 +32,9 @@ namespace Alttariq
         private void Testes_Click(object sender, EventArgs e)
         {
             GeoCoord track = GPXHandle.LoadGPXTracks("D:\\GitHub\\TrackEditor\\GPX_Files\\02_10_16 07_11.gpx");
-
+            trackSpacialProperties(track);
             //exportar para kml
-            //exportToKml(track);
+            exportToKml(track);
 
             #region Importar Grid
 
@@ -51,8 +53,10 @@ namespace Alttariq
                     return;
                 }
                 //importar os pontos para um 2D array (FORMATO XYZ Grid Regular)
-                if (!readGrid(gridFile)) //verifica se returnou falso -> algo correu mal
+                dtmGridArray = new ENZGrid(gridFile);
+                if (!dtmGridArray.SeperatorIdentifiyed) 
                 {
+                    MessageBox.Show("File seperator not identifiyed!", "Important Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
             }
@@ -101,74 +105,39 @@ namespace Alttariq
                 kml.Save(stream);
             }
         }
-
+        
         /// <summary>
-        /// verifica que tipo de separador tem o ficheiro XYZ
-        /// descobre o espaçamento da grid
-        /// Verifica os limites da grid 
-        /// preenche o dtmGridArray
+        /// Calcula o centroid do percurso
+        /// Calcula o fuso UTM onde se encontra o percurso
+        /// Define a projecção UTM em função do fuso UTM
+        /// Informações guardadas no próprio GeoCoord
         /// </summary>
-        /// <param name="gridFile"></param>
-        /// <returns></returns>
-        private bool readGrid(string[] gridFile)
+        /// <param name="track"></param>
+        private void trackSpacialProperties(GeoCoord track)
         {
-            String linhaTmp_f;
-            String[] linhaSplitTmp_f;
-            double xOne, xTwo;
-
-            //verificar que tipo de separador tem o ficheiro XYZ
-            char seperator = 'a';
-            
-            linhaTmp_f = gridFile[0];
-            foreach (char separatorTmp in new List<char> { ' ', ';', ',' })
-                if (linhaTmp_f.Split(separatorTmp).Length == 3)
-                    seperator = separatorTmp;
-                        
-            if (seperator == 'a')
+            //cálculo do centroide
+            double longMean = 0, latMean = 0;
+            foreach(Ll llTmp in track.LlList)
             {
-                MessageBox.Show("File seperator not found!", "Important Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
+                longMean += llTmp.Long;
+                latMean += llTmp.Lat;
             }
+            longMean /= track.LlList.Count;
+            latMean /= track.LlList.Count;
+            track.CentroidLL = new Ll(longMean, latMean, 0);
 
-            //descobrir o espaçamento da grid
-            xOne = Convert.ToDouble(gridFile[0].Split(seperator)[0], CultureInfo.InvariantCulture);
-            foreach(String linhaTmp in gridFile)
-            { 
-                xTwo = Convert.ToDouble(linhaTmp.Split(seperator)[0], CultureInfo.InvariantCulture);
-                if (xOne != xTwo)
-                {
-                    gridSpacing = Math.Abs(xOne - xTwo);
-                    break;
-                }
-                xOne = xTwo;
-            }
+            //definição do fuso UTM
+            track.UTMZone = Convert.ToInt32(Math.Truncate(31 + longMean / 6)); //fuso 31 é a origem;
 
-            //Verificar os limites da grid 
-            linhaSplitTmp_f = gridFile[0].Split(seperator);
-            xMax = Convert.ToDouble(linhaSplitTmp_f[0], CultureInfo.InvariantCulture);
-            xMin = Convert.ToDouble(linhaSplitTmp_f[0], CultureInfo.InvariantCulture);
-            yMax = Convert.ToDouble(linhaSplitTmp_f[1], CultureInfo.InvariantCulture);
-            yMin = Convert.ToDouble(linhaSplitTmp_f[1], CultureInfo.InvariantCulture);
-            foreach(String linhaTmp in gridFile)
-            {
-                linhaSplitTmp_f = linhaTmp.Split(seperator);
-                xMax = xMax < Convert.ToDouble(linhaSplitTmp_f[0], CultureInfo.InvariantCulture) ? Convert.ToDouble(linhaSplitTmp_f[0], CultureInfo.InvariantCulture) : xMax;
-                xMin = xMin > Convert.ToDouble(linhaSplitTmp_f[0], CultureInfo.InvariantCulture) ? Convert.ToDouble(linhaSplitTmp_f[0], CultureInfo.InvariantCulture) : xMin;
-                yMax = yMax < Convert.ToDouble(linhaSplitTmp_f[1], CultureInfo.InvariantCulture) ? Convert.ToDouble(linhaSplitTmp_f[1], CultureInfo.InvariantCulture) : yMax;
-                yMin = yMin > Convert.ToDouble(linhaSplitTmp_f[1], CultureInfo.InvariantCulture) ? Convert.ToDouble(linhaSplitTmp_f[1], CultureInfo.InvariantCulture) : yMin;
-            }
+            //definição da projecção UTM
+            double falseNorthing = latMean >= 0 ? 0 : 10000000;
+            Projection utmProjection = new Projection(-180 + track.UTMZone * 6 - 3, 0.0, 0.9996, 500000, falseNorthing);
+            track.Projection = utmProjection;
+        }
 
-            //construir 2D array [rows (Y), collums (X)]
-            dtmGridArray = new double[Convert.ToInt32(Math.Abs(yMax - yMin) / gridSpacing + 1), Convert.ToInt32(Math.Abs(xMax - xMin) / gridSpacing + 1)];
-            foreach (String linhaTmp in gridFile)
-            {
-                linhaSplitTmp_f = linhaTmp.Split(seperator);
-                int colPos = Convert.ToInt32((Convert.ToDouble(linhaSplitTmp_f[0], CultureInfo.InvariantCulture) - xMin) / gridSpacing);
-                int rowPos = Convert.ToInt32((Convert.ToDouble(linhaSplitTmp_f[1], CultureInfo.InvariantCulture) - yMin) / gridSpacing);
-                dtmGridArray[rowPos, colPos] = Convert.ToDouble(linhaSplitTmp_f[2], CultureInfo.InvariantCulture);
-            }
-            MessageBox.Show("#" + gridFile.Count() + " points successfully added.", "Important Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            return true;
+        private void pointsProjInDTM()
+        {
+
         }
 
         private Int32 max(Ll listaentrada, Int32 idInicial, Int32 idFinal)

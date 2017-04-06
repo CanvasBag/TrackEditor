@@ -55,8 +55,9 @@
     <ApplicationIcon>Oxygen-Icons.org-Oxygen-Actions-flag-blue.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="BaseCoordinates">
-      <HintPath>..\..\Libs\GPX_Parser\GPX_Parser\GPX_Parser\bin\Debug\BaseCoordinates.dll</HintPath>
+    <Reference Include="BaseCoordinates, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\RadonProject\baseCoordinates\baseCoordinates\bin\Release\BaseCoordinates.dll</HintPath>
     </Reference>
     <Reference Include="GPX_Parser">
       <HintPath>..\..\Libs\GPX_Parser\GPX_Parser\GPX_Parser\bin\Debug\GPX_Parser.dll</HintPath>
@@ -74,6 +75,9 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="TerrainModel">
+      <HintPath>..\..\Libs\TerrainModel\TerrainModel\bin\Release\TerrainModel.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Form1.cs">

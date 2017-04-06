@@ -1,0 +1,5 @@
+D:\GitHub\TrackEditor\Libs\TerrainModel\TerrainModel\bin\Debug\TerrainModel.dll
+D:\GitHub\TrackEditor\Libs\TerrainModel\TerrainModel\bin\Debug\TerrainModel.pdb
+D:\GitHub\TrackEditor\Libs\TerrainModel\TerrainModel\obj\Debug\TerrainModel.csprojResolveAssemblyReference.cache
+D:\GitHub\TrackEditor\Libs\TerrainModel\TerrainModel\obj\Debug\TerrainModel.dll
+D:\GitHub\TrackEditor\Libs\TerrainModel\TerrainModel\obj\Debug\TerrainModel.pdb

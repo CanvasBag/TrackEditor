@@ -14,3 +14,5 @@ D:\GitHub\TrackEditor\TrackAI\Alttariq\obj\x86\Debug\Alttariq.csproj.GenerateRes
 D:\GitHub\TrackEditor\TrackAI\Alttariq\obj\x86\Debug\TrackAI.exe
 D:\GitHub\TrackEditor\TrackAI\Alttariq\obj\x86\Debug\TrackAI.pdb
 D:\GitHub\TrackEditor\TrackAI\Alttariq\obj\x86\Debug\Alttariq.csprojResolveAssemblyReference.cache
+D:\GitHub\TrackEditor\TrackAI\Alttariq\bin\Debug\TerrainModel.dll
+D:\GitHub\TrackEditor\TrackAI\Alttariq\bin\Debug\TerrainModel.pdb

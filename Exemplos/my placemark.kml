@@ -3,7 +3,7 @@
   <Document>
     <Style id="CorLinha">
       <LineStyle>
-        <color>ff64ff00</color>
+        <color>ff00ff00</color>
         <width>2</width>
       </LineStyle>
     </Style>
